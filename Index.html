@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<title>Artlist</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="List of consumed arts">
+<meta name="keywords" content="html css native JS">
+<link href='https://fonts.googleapis.com/css?family=Imbue' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet'>
+<link rel="stylesheet" href="Index.css">
+<script  src="App.js" defer></script>
+</head>
+<body>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form>
+        <label for="name">Title:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  
+  </div>
+<header>What have i consumed</header>
+<div class="backdrop" visibility="hidden"></div>
+<label for="titles">Choose list</label>
+<select name="titles" id="titles">
+  <option value="Films" selected>Films</option>
+  <option value="Serials">Serials</option>
+  <option value="Anime">Anime</option>
+  <option value="Books">Books</option>
+  <option value="Manhua">Manhua</option>
+</select>
+<div class="listed">
+<div id="left">
+  <h2 id="itemtitle" class="itemsname"></h2>
+  <div id="item"> </div> <button id="addInstance">Add to watched</button>
+</div>
+
+<div id="right" class="itemsname">
+  <h2 id="wishtitle" ></h2>
+  <div id="wish"> </div> <button id="addWishInstance">Add to wishlist</button></div> 
+</div>
+
+
+
+</div>
+
+
+</body>
+</html>
