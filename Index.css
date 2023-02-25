@@ -1,3 +1,14 @@
+::-moz-selection {
+  /* Code for Firefox */
+  color: green;
+  background: black;
+}
+
+::selection {
+  color: green;
+  background: black;
+}
+
 body {
   background-color: #8ca171;
   /*background-image: url('gachimuchi-steve-rambo.gif');
@@ -23,20 +34,23 @@ header {
 }
 #left,
 #right {
-  padding: 50px;
+  padding: 0 14vw 0 14vw;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 28vw;
   float: left;
 }
 .itemsname {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
 }
 .listed li {
   list-style-type: armenian;
   font-size: 20px;
   font-family: 'Roboto Slab', serif;
   margin: 0;
-
+  text-align: left;
   padding: 0;
   text-shadow: #977402;
 }
@@ -131,4 +145,22 @@ header {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+select {
+  font-size: 1.5rem;
+  padding: 2px 5px;
+  width: 14vw;
+  background-color: #2e6561;
+  border: 2px solid #000000;
+  border-radius: 6px;
+}
+select:active,
+select:hover {
+  outline: none;
+}
+
+/* make it red instead (with with same width and style) */
+select:active,
+select:hover {
+  outline-color: green;
 }

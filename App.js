@@ -1,3 +1,5 @@
+//accamulate duration of time
+
 //import Modal from "./src/script/Modal.js";
 const aFilms = [
   'The Lord of the Rings',
@@ -81,16 +83,18 @@ const aManhuaLater = [
 ]; //queryselector best ui!!!
 const itemlist = document.getElementById('item'); //leftcolumn
 const wishlist = document.getElementById('wish'); //rightcolumn
-const select = document.getElementById('titles'); //selectlist
+const select = document.getElementsByClassName('titles')[0]; //selectlist
 
 const App = () => {
   const modal = document.getElementById('myModal');
   const btn = document.getElementById('addInstance');
   const wbtn = document.getElementById('addWishInstance');
   const span = document.getElementsByClassName('close')[0];
-  const list = aFilms;
-  const laterlist = aFilmsLater;
+  let list = new Array(); // = aFilms;
+  let laterlist = new Array(); //aFilmsLater;
   let seen = true; // if true to left column
+  window.addEventListener('load', () => showSelectedList(list, laterlist));
+  select.addEventListener('change', () => showSelectedList(list, laterlist));
   btn.onclick = function () {
     modal.style.display = 'block';
     seen = true;
@@ -107,25 +111,26 @@ const App = () => {
     if (event.target == modal) {
       modal.style.display = 'none';
     }
-  };
+  }; ///delete function
 
   // When the user submits the form, get the input value and do something with it (in this example, we're just alerting it)
   document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
     let name = document.getElementById('name').value;
+    [list, laterlist] = updateSelectedLists(list, laterlist);
+    console.log(list, laterlist);
     if (seen) {
       list.push(name);
     } else laterlist.push(name);
+    console.log(list, laterlist);
     showSelectedList(list, laterlist);
     modal.style.display = 'none';
   });
-
-  window.addEventListener('load', () => showSelectedList(list, laterlist));
-  select.addEventListener('change', () => showSelectedList(list, laterlist));
 };
 function updateSelectedLists(list, laterlist) {
-  document.querySelector('#itemtitle').innerHTML = select.value;  
-  document.querySelector('#wishtitle').innerHTML = 'Watch later';
+  document.querySelector('#itemtitle').innerHTML = ' Consumed ' + select.value;
+  document.querySelector('#wishtitle').innerHTML =
+    select.value + '  to consume later';
   switch (select.value) {
     case 'Films':
       list = aFilms;
